@@ -9,6 +9,7 @@
     "start": "per-env",
     "start:development": "nodemon -r dotenv/config ./bin/www",
     "start:production": "node ./bin/www",
+    "db:setdown": "dotenv sequelize db:drop",
     "db:setup": "dotenv sequelize db:create && dotenv sequelize db:migrate && dotenv sequelize db:seed:all"
   },
   "keywords": [],
