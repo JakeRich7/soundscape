@@ -37,6 +37,19 @@ router.delete(
   }
 );
 
+router.get(
+  '/',
+  restoreUser,
+  (req, res) => {
+    const { user } = req;
+    if (user) {
+      return res.json({
+        user: user.toSafeObject()
+      });
+    } else return res.json({});
+  }
+);
+
 // eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjoxLCJ1c2VybmFtZSI6IkRlbW8tbGl0aW9uIn0sImlhdCI6MTY0MzkxMjQ4MSwiZXhwIjoxNjQ0NTE3MjgxfQ.PMikg36CiuP2iJhtZqTR4pyD1bSDFl3-yQW44Cr3STA
 
 module.exports = router;
