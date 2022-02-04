@@ -40,6 +40,10 @@ body {
   justify-content: flex-end;
 }
 
+.profile-button:hover {
+  cursor: pointer;
+}
+
 .profile-dropdown {
   background-color: white;
   padding: 0px;
@@ -52,6 +56,11 @@ body {
   padding: 5px;
 }
 
-.profile-dropdown > li:hover {
+.profile-name:hover {
+  cursor: default;
+}
+
+.profile-logout-button:hover {
   background-color: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 }
