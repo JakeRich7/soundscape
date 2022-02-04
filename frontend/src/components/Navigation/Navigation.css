@@ -1,0 +1,36 @@
+body {
+  background-color: blue;
+  margin: 0px;
+}
+
+.navigation-bar {
+  background-color: #333;
+  margin: 0px;
+}
+
+.navigation-bar > li {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.home-button {
+  display: inline-block;
+}
+
+.auth-buttons {
+  display: inline-block;
+  margin-right: 30px;
+}
+
+.home-button > a {
+  color: white;
+  text-decoration: none;
+}
+
+.auth-buttons > a {
+  color: white;
+  text-decoration: none;
+  margin-right: 10px;
+}
