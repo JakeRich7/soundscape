@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import * as sessionActions from '../../store/session';
+import * as songActions from '../../store/songs';
 import { useDispatch } from 'react-redux';
 
 function Navigation({ isLoaded }) {
@@ -12,7 +13,9 @@ function Navigation({ isLoaded }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    return dispatch(sessionActions.login({ credential: "Demo-lition", password: "password" }))
+    dispatch(sessionActions.login({ credential: "Demo-lition", password: "password" }));
+    dispatch(songActions.getAll());
+    return;
   }
 
   let sessionLinks;
