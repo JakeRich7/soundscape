@@ -20,7 +20,10 @@ function Navigation({ isLoaded }) {
   if (sessionUser) {
     sessionLinks = (
       <>
-        <NavLink className='library-button' to="/library">Library</NavLink>
+        <div>
+          <NavLink className='library-button' to="/library">Library</NavLink>
+          <NavLink className='upload-button' to="/upload">Upload</NavLink>
+        </div>
         <ProfileButton user={sessionUser} />
       </>
     );

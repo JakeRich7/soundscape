@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import Home from "./components/Home"
 import * as songActions from './store/songs';
 import Library from "./components/Library";
+import Upload from "./components/Upload";
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,9 @@ function App() {
           }
           <Route path="/library">
             <Library />
+          </Route>
+          <Route path="/upload">
+            <Upload />
           </Route>
           <Route>
             Bad Guy!

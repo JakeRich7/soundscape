@@ -7,9 +7,6 @@ function Library() {
   const allSongs = useSelector(state => state.songs.allSongs);
   const sessionUser = useSelector(state => state.session.user);
 
-  console.log(allSongs);
-  console.log(sessionUser);
-
   let yourSongs = [];
   if (allSongs) {
     allSongs.forEach(ele => {
