@@ -17,6 +17,22 @@ router.get(
   })
 )
 
+router.post(
+  '/',
+  asyncHandler(async (req, res) => {
+    const { title, url, userId } = req.body;
+
+    const song = Song.create({
+      title,
+      url,
+      user_id: userId,
+      favorite: false
+    })
+
+    return;
+  })
+)
+
 
 
 
