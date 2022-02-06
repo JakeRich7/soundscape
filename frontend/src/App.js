@@ -8,6 +8,7 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home"
 import * as songActions from './store/songs';
+import Library from "./components/Library";
 
 function App() {
   const dispatch = useDispatch();
@@ -43,6 +44,9 @@ function App() {
             !sessionUser &&
             <Redirect to="/" />
           }
+          <Route path="/library">
+            <Library />
+          </Route>
           <Route>
             Bad Guy!
           </Route>
