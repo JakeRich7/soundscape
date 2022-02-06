@@ -33,9 +33,12 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/logout">
-            <LogoutPage />
-          </Route>
+          {
+            !sessionUser &&
+            <Route path="/logout">
+              <LogoutPage />
+            </Route>
+          }
           {
             !sessionUser &&
             <Redirect to="/" />
