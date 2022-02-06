@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { Route, Switch } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Switch, Redirect } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
+import LogoutPage from "./components/LogoutPage";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home"
@@ -15,6 +16,8 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(songActions.getAll());
   }, [dispatch]);
+
+  const sessionUser = useSelector(state => state.session.user);
 
   return (
     <>
@@ -29,6 +32,16 @@ function App() {
           </Route>
           <Route path="/signup">
             <SignupFormPage />
+          </Route>
+          <Route path="/logout">
+            <LogoutPage />
+          </Route>
+          {
+            !sessionUser &&
+            <Redirect to="/" />
+          }
+          <Route>
+            Bad Guy!
           </Route>
         </Switch>
       )}
