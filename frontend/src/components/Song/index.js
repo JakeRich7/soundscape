@@ -1,8 +1,10 @@
 import React from "react";
+import ReactAudioPlayer from "react-audio-player";
 import './Song.css';
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as songActions from '../../store/songs';
+import { csrfFetch } from "../../store/csrf";
 
 function Song({ ele }) {
   const [toggleForm, setToggleForm] = useState(true);
@@ -34,17 +36,20 @@ function Song({ ele }) {
   };
 
   const deleter = async (e) => {
+    e.preventDefault();
     await dispatch(songActions.deleteOne({ songId }));
     await dispatch(songActions.getAll());
+  }
+
+  const audioErrors = () => {
+    console.log(`${ele.url} is an invalid url!!! How dare you...`);
   }
 
   let songContent;
   if (toggleForm === true) {
     songContent = (
       <div className="song-normal-view">
-        <audio controls>
-          <source src={ele.url} type="audio/mp3"></source>
-        </audio>
+        <ReactAudioPlayer onError={audioErrors} controls src={ele.url}/>
         <div className="song-username-title">
           <div className="song-username">{ele.User.username}</div>
           <div className="song-title">{ele.title}</div>
@@ -76,7 +81,7 @@ function Song({ ele }) {
             />
           </label>
         </div>
-        <button className="confirm-edit-button" type="submit">Confirm Edit</button>
+        <button className="confirm-edit-button" onClick={handleSubmit}>Confirm Edit</button>
         <button className="delete-button" onClick={deleter}>Delete</button>
       </form>
     )
