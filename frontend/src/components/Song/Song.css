@@ -1,0 +1,13 @@
+.one-song {
+  margin-top: 0px;
+}
+
+.one-song > li {
+  list-style-type: none;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 15px 0px;
+}
+
+.one-song > li:hover {
+  background-color: #e5e5e5;
+}

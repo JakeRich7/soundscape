@@ -17,14 +17,17 @@ function Library() {
   }
 
   return (
-    <ul className="one-song">
-      {
-        allSongs &&
-        yourSongs.map(ele => (
-          <Song key={ele.id} ele={ele} />
-        ))
-      }
-    </ul>
+    <>
+      <h2 className="library-title">Your Tracks</h2>
+      <ul className="one-song">
+        {
+          allSongs &&
+          yourSongs.map(ele => (
+            <Song key={ele.id} ele={ele} />
+          ))
+        }
+      </ul>
+    </>
   )
 }
 

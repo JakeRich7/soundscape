@@ -1,0 +1,9 @@
+.library-title {
+  margin-left: 20px;
+  margin-bottom: 0px;
+  padding-bottom: 5px;
+  font-size: 35px;
+  font-weight: 400;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  border-bottom: 1px solid #e5e5e5;
+}
