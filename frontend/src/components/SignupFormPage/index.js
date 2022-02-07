@@ -24,54 +24,60 @@ function SignupFormPage() {
           const data = await res.json();
           if (data && data.errors) setErrors(data.errors);
         });
-        return;
+      return;
     }
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <ul>
-        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-      </ul>
-      <label>
-        Email
+    <div className="signup-form-div">
+      <form className="signup-form" onSubmit={handleSubmit}>
+        <ul>
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
+        <label className="signup-email-label">
+          <div>Email</div>
+        </label>
         <input
+          className="signup-email"
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-      </label>
-      <label>
-        Username
+        <label className="signup-username-label">
+          <div>Username</div>
+        </label>
         <input
+          className="signup-username"
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
         />
-      </label>
-      <label>
-        Password
+        <label className="signup-password-label">
+          <div>Password</div>
+        </label>
         <input
+          className="signup-password"
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-      </label>
-      <label>
-        Confirm Password
+        <label className="signup-confirm-label">
+          <div>Confirm Password</div>
+        </label>
         <input
+          className="signup-confirm"
           type="password"
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-      </label>
-      <button type="submit">Sign Up</button>
-    </form>
+        <button className="signup-button-submitter" type="submit">Sign Up</button>
+      </form>
+    </div>
   );
 }
 
