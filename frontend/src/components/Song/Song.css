@@ -24,12 +24,14 @@
 .url-input {
   width: 500px;
   margin-left: 5px;
+  border-radius: 5px;
 }
 
 .title-input {
   margin-bottom: 3px;
   width: 500px;
   margin-left: 7px;
+  border-radius: 5px;
 }
 
 .full-song-box {

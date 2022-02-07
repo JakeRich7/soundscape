@@ -10,6 +10,7 @@ import Home from "./components/Home"
 import * as songActions from './store/songs';
 import Library from "./components/Library";
 import Upload from "./components/Upload";
+import Intro from "./components/Intro";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,34 +29,35 @@ function App() {
         <Navigation isLoaded={isLoaded} />
         {isLoaded && (
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
             <Route path="/login">
               <LoginFormPage />
             </Route>
             <Route path="/signup">
               <SignupFormPage />
             </Route>
+            <Route path="/logout">
+              <LogoutPage />
+            </Route>
             {
               !sessionUser &&
-              <Route path="/logout">
-                <LogoutPage />
+              <Route exact path="/">
+                <Intro />
               </Route>
             }
             {
               !sessionUser &&
               <Redirect to="/" />
             }
+            <Route path="/discover">
+              <Home />
+            </Route>
             <Route path="/library">
               <Library />
             </Route>
             <Route path="/upload">
               <Upload />
             </Route>
-            <Route>
-              Bad Guy!
-            </Route>
+            <Redirect to="/discover" />
           </Switch>
         )}
       </div>

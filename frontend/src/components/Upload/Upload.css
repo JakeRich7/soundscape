@@ -21,6 +21,7 @@
 .upload-title {
   width: 300px;
   margin-top: 10px;
+  border-radius: 5px;
 }
 
 .title-label {
@@ -33,6 +34,7 @@
   width: 300px;
   height: 75px;
   resize: none;
+  border-radius: 10px;
 }
 
 .url-label {
@@ -47,8 +49,8 @@
   width: 75px;
   height: 35px;
   border-radius: 7px;
-  background-color: #D9AFD9;
-  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+  background-color: #21D4FD;
+  background-image: linear-gradient(19deg, #21D4FD 0%, #cb5ffd 100%);
   margin-left: 5px;
   text-decoration: none;
   color: black;

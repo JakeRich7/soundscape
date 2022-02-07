@@ -5,6 +5,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import * as sessionActions from '../../store/session';
 import { useDispatch } from 'react-redux';
+import soundscapeIcon from './soundscape-icon.png';
 
 function Navigation({ isLoaded }) {
   const dispatch = useDispatch()
@@ -30,9 +31,9 @@ function Navigation({ isLoaded }) {
   } else {
     sessionLinks = (
       <div className='auth-buttons'>
-        <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
-        <button onClick={handleSubmit}>demouser</button>
+        <NavLink className='login-button' to="/login">Log In</NavLink>
+        <NavLink className='signup-button' to="/signup">Sign Up</NavLink>
+        <button className='demouser-button' onClick={handleSubmit}>Demo User</button>
       </div>
     );
   }
@@ -40,8 +41,11 @@ function Navigation({ isLoaded }) {
   return (
     <ul className='navigation-bar'>
       <li>
-        <div className='home-button'>
-          <NavLink exact to="/">Home</NavLink>
+        <div className='home-logo'>
+          <NavLink exact to="/">
+            <img className='soundscape-icon' src={soundscapeIcon} alt="soundscape icon" />
+          </NavLink>
+          <NavLink className="home-button" exact to="/"><div>Home</div></NavLink>
         </div>
         {isLoaded && sessionLinks}
       </li>
