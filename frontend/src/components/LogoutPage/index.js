@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import './Logout.css';
 
 function LogoutPage() {
   const sessionUser = useSelector(state => state.session.user);
@@ -8,13 +9,14 @@ function LogoutPage() {
     <>
       {
         !sessionUser &&
-        <div>
-          Why did you log out???
+        <div className="logout-message-main">
+          You've signed out. Now go mobile!
+          <img src="https://a-v2.sndcdn.com/assets/images/android-9946ba3b.svg" alt="logged out mobile ad" />
         </div>
       }
       {
         sessionUser &&
-        <div>
+        <div className="logout-message-main">
           Use the profile button to log out
         </div>
       }
