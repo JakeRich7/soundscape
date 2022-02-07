@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
 import './Navigation.css';
@@ -12,7 +12,6 @@ function Navigation({ isLoaded }) {
   const sessionUser = useSelector(state => state.session.user);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     dispatch(sessionActions.login({ credential: "Demo-lition", password: "password" }));
     return;
   }
@@ -33,7 +32,7 @@ function Navigation({ isLoaded }) {
       <div className='auth-buttons'>
         <NavLink className='login-button' to="/login">Log In</NavLink>
         <NavLink className='signup-button' to="/signup">Sign Up</NavLink>
-        <button className='demouser-button' onClick={handleSubmit}>Demo User</button>
+        <Link to='/discover' className='demouser-button' onClick={handleSubmit}>Demo User</Link>
       </div>
     );
   }

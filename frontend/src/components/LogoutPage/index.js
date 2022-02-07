@@ -17,7 +17,7 @@ function LogoutPage() {
       {
         sessionUser &&
         <div className="logout-message-main">
-          Use the profile button to log out
+          Logging you out...
         </div>
       }
     </>
