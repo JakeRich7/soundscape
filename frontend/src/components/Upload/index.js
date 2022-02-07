@@ -10,10 +10,10 @@ function Upload() {
   const [url, setUrl] = useState("");
   const dispatch = useDispatch();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(songActions.createOne({ title, url, userId }));
-    dispatch(songActions.getAll());
+    await dispatch(songActions.createOne({ title, url, userId }));
+    await dispatch(songActions.getAll());
   };
 
   return (

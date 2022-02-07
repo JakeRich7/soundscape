@@ -22,18 +22,34 @@ router.post(
   asyncHandler(async (req, res) => {
     const { title, url, userId } = req.body;
 
-    const song = Song.create({
+    const song = await Song.create({
       title,
       url,
       user_id: userId,
       favorite: false
     })
 
-    return;
+    return res.json({
+      song
+    });
   })
 )
 
+router.put(
+  '/',
+  asyncHandler(async (req, res) => {
+    const { title, url, songId } = req.body;
 
+    const song = await Song.update(
+      { title, url },
+      { where: { id: songId } }
+    )
+
+    return res.json({
+      song
+    });
+  })
+)
 
 
 

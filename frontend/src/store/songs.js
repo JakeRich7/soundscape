@@ -1,11 +1,27 @@
 import { csrfFetch } from './csrf';
 
 const GET_SONGS = 'songs/getAll';
+const POST_SONG = 'songs/createOne';
+const EDIT_SONG = 'songs/editOne';
 
 const getSongs = (allSongs) => {
   return {
     type: GET_SONGS,
     payload: allSongs,
+  };
+};
+
+const postSong = (response) => {
+  return {
+    type: POST_SONG,
+    payload: response,
+  };
+};
+
+const editSong = (response) => {
+  return {
+    type: EDIT_SONG,
+    payload: response,
   };
 };
 
@@ -29,7 +45,22 @@ export const createOne = (newSong) => async (dispatch) => {
       userId
     }),
   });
-  return;
+  dispatch(postSong(response));
+  return response;
+};
+
+export const editOne = (alteredSong) => async (dispatch) => {
+  const { title, url, songId } = alteredSong;
+  const response = await csrfFetch('/api/songs', {
+    method: 'PUT',
+    body: JSON.stringify({
+      title,
+      url,
+      songId
+    }),
+  });
+  dispatch(editSong(response));
+  return response;
 };
 
 const initialState = { allSongs: null };
@@ -41,6 +72,10 @@ const songsReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       newState.allSongs = action.payload;
       return newState;
+    case POST_SONG:
+      return state;
+    case EDIT_SONG:
+      return state;
     default:
       return state;
   }
