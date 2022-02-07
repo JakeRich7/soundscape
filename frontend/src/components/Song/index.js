@@ -61,7 +61,7 @@ function Song({ ele }) {
       <form className="edit-form" onSubmit={handleSubmit}>
         <div className="input-fields-title-url">
           <label>
-            Title
+            Title:
             <input
               className="title-input"
               type="text"
@@ -71,7 +71,7 @@ function Song({ ele }) {
             />
           </label>
           <label>
-            URL
+            URL:
             <input
               className="url-input"
               type="text"

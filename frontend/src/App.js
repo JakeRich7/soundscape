@@ -23,39 +23,42 @@ function App() {
 
   return (
     <>
-      <Navigation isLoaded={isLoaded} />
-      {isLoaded && (
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/login">
-            <LoginFormPage />
-          </Route>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
-          {
-            !sessionUser &&
-            <Route path="/logout">
-              <LogoutPage />
+      <div className="nav-bar-color-extension"></div>
+      <div className="body-main-div">
+        <Navigation isLoaded={isLoaded} />
+        {isLoaded && (
+          <Switch>
+            <Route exact path="/">
+              <Home />
             </Route>
-          }
-          {
-            !sessionUser &&
-            <Redirect to="/" />
-          }
-          <Route path="/library">
-            <Library />
-          </Route>
-          <Route path="/upload">
-            <Upload />
-          </Route>
-          <Route>
-            Bad Guy!
-          </Route>
-        </Switch>
-      )}
+            <Route path="/login">
+              <LoginFormPage />
+            </Route>
+            <Route path="/signup">
+              <SignupFormPage />
+            </Route>
+            {
+              !sessionUser &&
+              <Route path="/logout">
+                <LogoutPage />
+              </Route>
+            }
+            {
+              !sessionUser &&
+              <Redirect to="/" />
+            }
+            <Route path="/library">
+              <Library />
+            </Route>
+            <Route path="/upload">
+              <Upload />
+            </Route>
+            <Route>
+              Bad Guy!
+            </Route>
+          </Switch>
+        )}
+      </div>
     </>
   );
 }
