@@ -41,49 +41,56 @@ function Song({ ele }) {
   let songContent;
   if (toggleForm === true) {
     songContent = (
-      <ul>
-        <li>title: {ele.title}</li>
-        <li>url: {ele.url}</li>
-      </ul>
+      <div className="song-normal-view">
+        <audio controls>
+          <source src={ele.url} type="audio/mp3"></source>
+        </audio>
+        <div className="song-username-title">
+          <div className="song-username">{ele.User.username}</div>
+          <div className="song-title">{ele.title}</div>
+        </div>
+      </div>
     )
   } else {
     songContent = (
-      <form onSubmit={handleSubmit}>
-        <label>
-          Title
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          URL
-          <input
-            type="text"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Confirm Edit</button>
+      <form className="edit-form" onSubmit={handleSubmit}>
+        <div className="input-fields-title-url">
+          <label>
+            Title
+            <input
+              className="title-input"
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            URL
+            <input
+              className="url-input"
+              type="text"
+              value={url}
+              onChange={(e) => setUrl(e.target.value)}
+              required
+            />
+          </label>
+        </div>
+        <button className="confirm-edit-button" type="submit">Confirm Edit</button>
+        <button className="delete-button" onClick={deleter}>Delete</button>
       </form>
     )
   }
 
   return (
-    <li>
-      <div>
+    <li className="full-song-box">
+      <div className="all-song-content">
         <div>
           {songContent}
         </div>
         {
           ele.user_id === userId &&
-          <div>
-            <button onClick={toggleEditForm}>{editButtonText}</button>
-            <button onClick={deleter}>Delete</button>
-          </div>
+          <button className="edit-button" onClick={toggleEditForm}>{editButtonText}</button>
         }
       </div>
     </li>

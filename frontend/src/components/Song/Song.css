@@ -11,3 +11,69 @@
 .one-song > li:hover {
   background-color: #e5e5e5;
 }
+
+.song-normal-view {
+  display: flex;
+}
+
+.all-song-content {
+  display: flex;
+  align-items: center;
+}
+
+.url-input {
+  width: 500px;
+}
+
+.title-input {
+  width: 502px;
+}
+
+.full-song-box {
+  height: 55px;
+  display: flex;
+  align-items: center;
+}
+
+.song-username {
+  color: #999;
+}
+
+.song-username-title {
+  margin: 0px 10px;
+}
+
+.input-fields-title-url {
+  display: flex;
+  flex-direction: column;
+  margin-right: 5px;
+}
+
+.edit-form {
+  display: flex;
+  align-items: center;
+}
+
+.edit-button {
+  width: 75px;
+  height: 35px;
+  border-radius: 7px;
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);
+  margin-left: 5px;
+}
+
+.delete-button {
+  width: 75px;
+  height: 35px;
+  border-radius: 7px;
+  background-image: linear-gradient(0deg, rgb(248, 104, 104) 0%, rgb(247, 0, 0) 100%);
+  margin-left: 5px;
+}
+
+.confirm-edit-button {
+  width: 75px;
+  height: 35px;
+  border-radius: 7px;
+  background-image: linear-gradient(0deg, rgb(81, 241, 89) 0%, rgb(19, 187, 13) 100%);
+}

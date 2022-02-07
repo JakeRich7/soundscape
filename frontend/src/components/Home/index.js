@@ -8,15 +8,18 @@ function Home() {
   const sessionUser = useSelector(state => state.session.user);
 
   return (
-    <ul className="one-song">
-      {
-        allSongs &&
-        sessionUser &&
-        allSongs.map(ele => (
-          <Song key={ele.id} ele={ele} />
-        ))
-      }
-    </ul>
+    <>
+      <h2 className="home-title">Discover</h2>
+      <ul className="one-song">
+        {
+          allSongs &&
+          sessionUser &&
+          allSongs.map(ele => (
+            <Song key={ele.id} ele={ele} />
+          ))
+        }
+      </ul>
+    </>
   )
 }
 
