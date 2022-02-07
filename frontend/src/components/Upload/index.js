@@ -19,18 +19,18 @@ function Upload() {
   return (
     <div className="upload-form-div">
       <form className="upload-form" onSubmit={handleSubmit}>
-        <label>
-          Title
+        <label className="title-label">
+          Title:
         </label>
         <input
-          className="title-url"
+          className="upload-title"
           type="text"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
-        <label>
-          URL
+        <label className="url-label">
+          URL:
         </label>
         <textarea
           className="upload-url"
@@ -38,7 +38,7 @@ function Upload() {
           onChange={(e) => setUrl(e.target.value)}
           required
         />
-        <Link onClick={handleSubmit} to="/library">Upload</Link>
+        <Link className="upload-create-button-link" onClick={handleSubmit} to="/library">Upload</Link>
       </form>
     </div>
   )
