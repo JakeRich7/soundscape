@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './Upload.css';
 import * as songActions from '../../store/songs';
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 function Upload() {
   const sessionUser = useSelector(state => state.session.user);
@@ -11,7 +12,6 @@ function Upload() {
   const dispatch = useDispatch();
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     await dispatch(songActions.createOne({ title, url, userId }));
     await dispatch(songActions.getAll());
   };
@@ -36,7 +36,7 @@ function Upload() {
           required
         />
       </label>
-      <button type="submit">Upload</button>
+      <Link onClick={handleSubmit} to="/library">Upload</Link>
     </form>
   )
 }

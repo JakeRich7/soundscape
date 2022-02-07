@@ -7,8 +7,8 @@ import * as songActions from '../../store/songs';
 function Song({ ele }) {
   const [toggleForm, setToggleForm] = useState(true);
   const [editButtonText, setEditButtonText] = useState("Edit");
-  const [title, setTitle] = useState("");
-  const [url, setUrl] = useState("");
+  const [title, setTitle] = useState(ele.title);
+  const [url, setUrl] = useState(ele.url);
   const sessionUser = useSelector(state => state.session.user);
   const userId = sessionUser.id;
   const songId = ele.id;
@@ -33,8 +33,12 @@ function Song({ ele }) {
     }
   };
 
-  let songContent;
+  const deleter = async (e) => {
+    await dispatch(songActions.deleteOne({ songId }));
+    await dispatch(songActions.getAll());
+  }
 
+  let songContent;
   if (toggleForm === true) {
     songContent = (
       <ul>
@@ -78,6 +82,7 @@ function Song({ ele }) {
           ele.user_id === userId &&
           <div>
             <button onClick={toggleEditForm}>{editButtonText}</button>
+            <button onClick={deleter}>Delete</button>
           </div>
         }
       </div>
