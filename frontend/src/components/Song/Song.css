@@ -87,10 +87,6 @@
   margin-right: 10px;
   padding-left: 0px;
   background-color: rgba(255, 0, 0, 0.4);
-  border-start-start-radius: 20px;
-  border-start-end-radius: 20px;
-  border-end-start-radius: 5px;
-  border-end-end-radius: 5px;
 }
 
 .edit-song-errors-ul > li {
