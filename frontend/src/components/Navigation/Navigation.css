@@ -81,7 +81,7 @@ body {
   text-decoration: none;
 }
 
-.profile-logout-button:hover {
+.profile-logout-button > a:hover {
   background-color: rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
