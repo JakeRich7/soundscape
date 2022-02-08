@@ -1,0 +1,27 @@
+.specific-comment-area {
+  border: 2px solid #CCC;
+  border-radius: 5px;
+  margin: 0px 20px;
+  padding: 7px;
+}
+
+.comments-add-textarea {
+  resize: none;
+  height: 45px;
+  width: 375px;
+}
+
+.comments-add-submit-button {
+  width: 106px;
+  height: 25px;
+  border-radius: 7px;
+  background-color: #F4D03F;
+  background-image: linear-gradient(132deg, #f0d456 0%, #bbe675 100%);
+  margin-left: 5px;
+}
+
+.comments-area-add-form {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}

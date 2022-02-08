@@ -2,13 +2,13 @@
   margin-top: 0px;
 }
 
-.one-song > li {
+.full-song-box {
   list-style-type: none;
   border-bottom: 1px solid #e5e5e5;
   padding: 15px 0px;
 }
 
-.one-song > li:hover {
+.full-song-box:hover {
   background-color: #e5e5e5;
 }
 
@@ -102,4 +102,17 @@
 
 .edit-song-errors-heading {
   text-align: center;
+}
+
+.toggle-comments {
+  width: 80px;
+  height: 35px;
+  border-radius: 7px;
+  background-color: #D9AFD9;
+  background-image: linear-gradient(0deg, #17ff2b 0%, #afff65 100%);
+  margin-left: 5px;
+}
+
+.comments-main-list-item {
+  list-style-type: none;
 }

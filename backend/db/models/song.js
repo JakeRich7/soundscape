@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Song.associate = function(models) {
     Song.belongsTo(models.User, {foreignKey: 'user_id'});
+    Song.hasMany(models.Comment, {foreignKey: 'song_id'});
   };
   return Song;
 };

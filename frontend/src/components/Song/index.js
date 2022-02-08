@@ -4,6 +4,7 @@ import './Song.css';
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as songActions from '../../store/songs';
+import Comments from "../Comments";
 
 function Song({ ele }) {
   const [toggleForm, setToggleForm] = useState(true);
@@ -15,6 +16,8 @@ function Song({ ele }) {
   const songId = ele.id;
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([])
+  const [toggleCommentsState, setToggleCommentsState] = useState(false);
+  const [commentsButtonText, setCommentsButtonText] = useState("Show Comments")
 
   const uploadValidation = (e) => {
     let newErrors = [];
@@ -67,6 +70,15 @@ function Song({ ele }) {
     console.log(`${ele.url} is an invalid url!!! How dare you...`);
   }
 
+  const toggleComments = (e) => {
+    setToggleCommentsState(!toggleCommentsState);
+    if (toggleCommentsState === true) {
+      setCommentsButtonText("Show Comments");
+    } else {
+      setCommentsButtonText("Hide Comments");
+    }
+  }
+
   let songContent;
   if (toggleForm === true) {
     songContent = (
@@ -113,17 +125,28 @@ function Song({ ele }) {
   }
 
   return (
-    <li className="full-song-box">
-      <div className="all-song-content">
-        <div>
-          {songContent}
+    <>
+      <li className="full-song-box">
+        <div className="all-song-content">
+          <div>
+            {songContent}
+          </div>
+          {
+            ele.user_id === userId &&
+            <>
+              <button className="edit-button" onClick={toggleEditForm}>{editButtonText}</button>
+            </>
+          }
+          <button className="toggle-comments" onClick={toggleComments}>{commentsButtonText}</button>
         </div>
-        {
-          ele.user_id === userId &&
-          <button className="edit-button" onClick={toggleEditForm}>{editButtonText}</button>
-        }
-      </div>
-    </li>
+      </li>
+      {
+        toggleCommentsState &&
+        <li className="comments-main-list-item">
+          <Comments songId={songId} />
+        </li>
+      }
+    </>
   )
 }
 

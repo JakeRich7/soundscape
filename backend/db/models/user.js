@@ -63,6 +63,7 @@ module.exports = (sequelize, DataTypes) => {
 
   User.associate = function (models) {
     User.hasMany(models.Song, {foreignKey: 'user_id'});
+    User.hasMany(models.Comment, {foreignKey: 'user_id'});
   };
 
   User.login = async function ({ credential, password }) {

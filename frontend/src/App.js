@@ -11,6 +11,7 @@ import * as songActions from './store/songs';
 import Library from "./components/Library";
 import Upload from "./components/Upload";
 import Intro from "./components/Intro";
+import * as commentsActions from './store/comments';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(songActions.getAll());
+    dispatch(commentsActions.getAll());
   }, [dispatch]);
 
   const sessionUser = useSelector(state => state.session.user);
