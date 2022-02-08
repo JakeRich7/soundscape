@@ -10,15 +10,40 @@ function Upload() {
   const [title, setTitle] = useState("");
   const [url, setUrl] = useState("");
   const dispatch = useDispatch();
+  const [errors, setErrors] = useState([])
+
+  const uploadValidation = (e) => {
+    let newErrors = [];
+
+    if (title.length < 3) {
+      newErrors.push('song title must be greater than 2 characters long');
+    }
+    if (url.length < 3) {
+      newErrors.push('pathetic url...');
+    }
+
+    if (newErrors.length) {
+      setErrors(newErrors);
+      console.log(newErrors);
+      return true;
+    } else return false;
+  }
 
   const handleSubmit = async (e) => {
-    await dispatch(songActions.createOne({ title, url, userId }));
-    await dispatch(songActions.getAll());
+    if (uploadValidation()) {
+      e.preventDefault()
+    } else {
+      await dispatch(songActions.createOne({ title, url, userId }));
+      await dispatch(songActions.getAll());
+    }
   };
 
   return (
     <div className="upload-form-div">
       <form className="upload-form" onSubmit={handleSubmit}>
+      <ul className="upload-errors-ul">
+        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+      </ul>
         <label className="title-label">
           Title:
         </label>

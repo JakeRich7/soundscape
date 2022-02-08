@@ -27,6 +27,7 @@
 .title-label {
   font-size: 30px;
   margin-bottom: 0px;
+  margin-top: 0px;
 }
 
 .upload-url {
@@ -54,4 +55,8 @@
   margin-left: 5px;
   text-decoration: none;
   color: black;
+}
+
+.upload-errors-ul > li {
+  width: 250px;
 }
