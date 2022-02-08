@@ -14,13 +14,35 @@ function Song({ ele }) {
   const userId = sessionUser.id;
   const songId = ele.id;
   const dispatch = useDispatch();
+  const [errors, setErrors] = useState([])
+
+  const uploadValidation = (e) => {
+    let newErrors = [];
+
+    if (title.length < 1) {
+      newErrors.push('Title cannot be empty');
+    }
+    if (url.length < 1) {
+      newErrors.push('URL cannot be empty');
+    }
+
+    if (newErrors.length) {
+      newErrors.unshift("Edit Errors:");
+      setErrors(newErrors);
+      return true;
+    } else return false;
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await dispatch(songActions.editOne({ title, url, songId }));
-    await dispatch(songActions.getAll());
-    setToggleForm(true);
-    setEditButtonText("Edit");
+    if (uploadValidation()) {
+    } else {
+      await dispatch(songActions.editOne({ title, url, songId }));
+      await dispatch(songActions.getAll());
+      setToggleForm(true);
+      setEditButtonText("Edit");
+      setErrors([]);
+    }
   };
 
   const toggleEditForm = (e) => {
@@ -31,6 +53,7 @@ function Song({ ele }) {
     } else {
       setToggleForm(true);
       setEditButtonText("Edit");
+      setErrors([]);
     }
   };
 
@@ -48,7 +71,7 @@ function Song({ ele }) {
   if (toggleForm === true) {
     songContent = (
       <div className="song-normal-view">
-        <ReactAudioPlayer onError={audioErrors} controls src={ele.url}/>
+        <ReactAudioPlayer onError={audioErrors} controls src={ele.url} />
         <div className="song-username-title">
           <div className="song-username">{ele.User.username}</div>
           <div className="song-title">{ele.title}</div>
@@ -58,6 +81,9 @@ function Song({ ele }) {
   } else {
     songContent = (
       <form className="edit-form" onSubmit={handleSubmit}>
+        <ul className="edit-song-errors-ul">
+          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+        </ul>
         <div className="input-fields-title-url">
           <label>
             Title:

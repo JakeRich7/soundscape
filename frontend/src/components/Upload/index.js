@@ -15,11 +15,11 @@ function Upload() {
   const uploadValidation = (e) => {
     let newErrors = [];
 
-    if (title.length < 3) {
-      newErrors.push('song title must be greater than 2 characters long');
+    if (title.length < 1) {
+      newErrors.push('Title cannot be empty');
     }
-    if (url.length < 3) {
-      newErrors.push('pathetic url...');
+    if (url.length < 1) {
+      newErrors.push('URL cannot be empty');
     }
 
     if (newErrors.length) {
