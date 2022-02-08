@@ -11,9 +11,8 @@ function Navigation({ isLoaded }) {
   const dispatch = useDispatch()
   const sessionUser = useSelector(state => state.session.user);
 
-  const handleSubmit = (e) => {
-    dispatch(sessionActions.login({ credential: "Demo-lition", password: "password" }));
-    return;
+  const handleSubmit = async (e) => {
+    await dispatch(sessionActions.login({ credential: "Demo-lition", password: "password" }));
   }
 
   let sessionLinks;

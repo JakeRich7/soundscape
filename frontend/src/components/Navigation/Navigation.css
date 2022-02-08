@@ -72,6 +72,15 @@ body {
   cursor: default;
 }
 
+.profile-logout-button {
+  text-decoration: none;
+  border-top: 1px solid black;
+}
+
+.profile-logout-button > a {
+  text-decoration: none;
+}
+
 .profile-logout-button:hover {
   background-color: rgba(0, 0, 0, 0.2);
   cursor: pointer;

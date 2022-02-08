@@ -38,6 +38,15 @@ function App() {
             <Route path="/logout">
               <LogoutPage />
             </Route>
+            <Route path="/discover">
+              <Home />
+            </Route>
+            <Route path="/library">
+              <Library />
+            </Route>
+            <Route path="/upload">
+              <Upload />
+            </Route>
             {
               !sessionUser &&
               <Route exact path="/">
@@ -48,15 +57,6 @@ function App() {
               !sessionUser &&
               <Redirect to="/" />
             }
-            <Route path="/discover">
-              <Home />
-            </Route>
-            <Route path="/library">
-              <Library />
-            </Route>
-            <Route path="/upload">
-              <Upload />
-            </Route>
             <Redirect to="/discover" />
           </Switch>
         )}

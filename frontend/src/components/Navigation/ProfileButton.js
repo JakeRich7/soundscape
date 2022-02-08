@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import * as sessionActions from '../../store/session';
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -27,6 +26,7 @@ function ProfileButton({ user }) {
 
   const logout = (e) => {
     dispatch(sessionActions.logout());
+    return;
   };
 
   return (
@@ -39,8 +39,8 @@ function ProfileButton({ user }) {
       {showMenu && (
         <ul className="profile-dropdown">
           <li className="profile-name">{user.username}</li>
-          <li>
-            <Link to="/logout" className="profile-logout-button" onClick={logout}>Log Out</Link>
+          <li className="profile-logout-button" onClick={logout}>
+            <Link to="/logout">Log Out</Link>
           </li>
         </ul>
       )}

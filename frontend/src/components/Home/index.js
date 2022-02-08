@@ -18,10 +18,6 @@ function Home() {
             <Song key={ele.id} ele={ele} />
           ))
         }
-        {
-          !sessionUser &&
-          <li>Sign in view and listen to awesome music!</li>
-        }
       </ul>
     </>
   )

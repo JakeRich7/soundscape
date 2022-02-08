@@ -31,8 +31,13 @@
   height: 50px;
   width: 175px;
   border-radius: 10px;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: black;
   background-color: #FF3CAC;
   background-image: linear-gradient(225deg, #4fa4af 0%, #4b8ca0 50%, #7ac7ff 100%);
 }
