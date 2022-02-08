@@ -18,6 +18,23 @@ router.get(
   })
 )
 
+router.post(
+  '/',
+  asyncHandler(async (req, res) => {
+    const { songId, userId, addCommentValue } = req.body;
+
+    const comment = await Comment.create({
+      song_id: songId,
+      user_id: userId,
+      body: addCommentValue
+    })
+
+    return res.json({
+      comment
+    });
+  })
+)
+
 
 
 module.exports = router;

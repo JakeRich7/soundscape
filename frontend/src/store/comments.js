@@ -1,4 +1,7 @@
+import { csrfFetch } from "./csrf";
+
 const GET_COMMENTS = 'comments/getAll';
+const ADD_COMMENT = 'comments/addOne';
 
 const getComments = (allComments) => {
   return {
@@ -7,6 +10,13 @@ const getComments = (allComments) => {
   };
 };
 
+const addComment = (newComment) => {
+  return {
+    type: ADD_COMMENT,
+    payload: newComment,
+  }
+}
+
 export const getAll = () => async (dispatch) => {
   const response = await fetch("/api/comments", {
     method: "GET",
@@ -14,6 +24,21 @@ export const getAll = () => async (dispatch) => {
   const data = await response.json();
   const { comments } = data;
   dispatch(getComments(comments));
+  return response;
+};
+
+export const createOne = ({ songId, userId, addCommentValue }) => async (dispatch) => {
+  console.log(songId, userId, addCommentValue)
+
+  const response = await csrfFetch('/api/comments', {
+    method: 'POST',
+    body: JSON.stringify({
+      songId,
+      userId,
+      addCommentValue
+    }),
+  });
+  dispatch(addComment(response));
   return response;
 };
 
@@ -26,6 +51,8 @@ const commentsReducer = (state = initialState, action) => {
       newState = Object.assign({}, state);
       newState.allComments = action.payload;
       return newState;
+    case ADD_COMMENT:
+      return state;
     default:
       return state;
   }
