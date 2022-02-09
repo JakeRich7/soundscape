@@ -55,6 +55,8 @@ function Song({ ele }) {
       setEditButtonText("Cancel");
     } else {
       setToggleForm(true);
+      setTitle(ele.title);
+      setUrl(ele.url);
       setEditButtonText("Edit");
       setErrors([]);
     }

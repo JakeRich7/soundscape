@@ -10,15 +10,14 @@ function Comments({ ele }) {
   const [toggleEdit, setToggleEdit] = useState(false);
   const [editButtonText, setEditButtonText] = useState("Edit");
   const dispatch = useDispatch();
-  const [editCommentText, setEditCommentText] = useState("");
+  const [editCommentText, setEditCommentText] = useState(ele.body);
 
   const toggleCommentEdit = (e) => {
     if (editButtonText === "Edit") {
       setEditButtonText("Cancel");
-      setEditCommentText("");
     } else {
+      setEditCommentText(ele.body);
       setEditButtonText("Edit");
-      setEditCommentText("");
     }
     setToggleEdit(!toggleEdit);
   }
