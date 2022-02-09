@@ -38,7 +38,7 @@ function Comments({ songId }) {
           <>
             {
               !songComments.length &&
-              <div>No comments yet! Be the first to comment!</div>
+              <div className="no-comments-div">Nothing here! Be the first to comment:</div>
             }
             {
               songComments.map(ele => (
