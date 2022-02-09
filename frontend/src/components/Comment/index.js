@@ -26,6 +26,7 @@ function Comments({ ele }) {
   let commentId = ele.id;
 
   const deleteComment = async (e) => {
+    e.preventDefault();
     await dispatch(commentActions.deleteOne({ commentId }));
     await dispatch(commentActions.getAll());
   }
@@ -47,7 +48,6 @@ function Comments({ ele }) {
       ele.user_id === userId &&
       <div className="specific-comment-buttons">
         <button className="edit-comment-toggle-button" onClick={toggleCommentEdit}>{editButtonText}</button>
-        <button className="delete-comment-button" onClick={deleteComment}>Delete</button>
       </div>
     }
     {
@@ -66,6 +66,7 @@ function Comments({ ele }) {
         >
           Confirm
         </button>
+        <button className="delete-comment-button" onClick={deleteComment}>Delete</button>
       </form>
     }
   </div>
