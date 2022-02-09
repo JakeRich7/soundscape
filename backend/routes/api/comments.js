@@ -35,6 +35,38 @@ router.post(
   })
 )
 
+router.put(
+  '/',
+  asyncHandler(async (req, res) => {
+    const { commentId, editCommentText } = req.body;
+
+    const comment = await Comment.update(
+      { body: editCommentText },
+      { where: { id: commentId } }
+    )
+
+    return res.json({
+      comment
+    });
+  })
+)
+
+router.delete(
+  '/:commentId',
+  asyncHandler(async (req, res) => {
+    const commentToDelete = req.params.commentId;
+
+    const comment = await Comment.destroy(
+      { where: { id: commentToDelete } }
+    )
+
+    return res.json({
+      comment
+    });
+  })
+)
+
+
 
 
 module.exports = router;
