@@ -3,6 +3,7 @@ const asyncHandler = require('express-async-handler');
 
 const { Song } = require('../../db/models');
 const { User } = require('../../db/models');
+const { Comment } = require('../../db/models');
 
 const router = express.Router();
 
@@ -56,6 +57,10 @@ router.delete(
   '/:songId',
   asyncHandler(async (req, res) => {
     const songToDelete = req.params.songId;
+
+    await Comment.destroy(
+      { where: { song_id: songToDelete } }
+    )
 
     const song = await Song.destroy(
       { where: { id: songToDelete } }
