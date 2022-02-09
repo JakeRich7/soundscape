@@ -132,12 +132,16 @@ function Song({ ele }) {
             {songContent}
           </div>
           {
+            toggleForm &&
+            <button className="toggle-comments" onClick={toggleComments}>{commentsButtonText}</button>
+          }
+          {
             ele.user_id === userId &&
+            !toggleCommentsState &&
             <>
               <button className="edit-button" onClick={toggleEditForm}>{editButtonText}</button>
             </>
           }
-          <button className="toggle-comments" onClick={toggleComments}>{commentsButtonText}</button>
         </div>
       </li>
       {
