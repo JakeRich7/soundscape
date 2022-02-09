@@ -40,35 +40,42 @@ function Comments({ ele }) {
     }
   }
 
+  console.log(ele);
+
   return (
     <div className="specific-comment-area" key={ele.id}>
-    <div className="specific-comment-body">{ele.body}</div>
-    {
-      ele.user_id === userId &&
-      <div className="specific-comment-buttons">
-        <button className="edit-comment-toggle-button" onClick={toggleCommentEdit}>{editButtonText}</button>
+      <div className="specific-comment-body">
+        {ele.body}
+        <div className="comment-username-name">
+          {`- ${ele.User.username}`}
+        </div>
       </div>
-    }
-    {
-      toggleEdit &&
-      <form className="edit-comment-form">
-        <textarea
-        className="edit-comment-textarea"
-        value={editCommentText}
-        onChange={(e) => setEditCommentText(e.target.value)}
-        required
-        >
-        </textarea>
-        <button
-        onClick={editComment}
-        className="edit-comment-confirm-button"
-        >
-          Confirm
-        </button>
-        <button className="delete-comment-button" onClick={deleteComment}>Delete</button>
-      </form>
-    }
-  </div>
+      {
+        ele.user_id === userId &&
+        <div className="specific-comment-buttons">
+          <button className="edit-comment-toggle-button" onClick={toggleCommentEdit}>{editButtonText}</button>
+        </div>
+      }
+      {
+        toggleEdit &&
+        <form className="edit-comment-form">
+          <textarea
+            className="edit-comment-textarea"
+            value={editCommentText}
+            onChange={(e) => setEditCommentText(e.target.value)}
+            required
+          >
+          </textarea>
+          <button
+            onClick={editComment}
+            className="edit-comment-confirm-button"
+          >
+            Confirm
+          </button>
+          <button className="delete-comment-button" onClick={deleteComment}>Delete</button>
+        </form>
+      }
+    </div>
   )
 }
 

@@ -11,12 +11,12 @@ module.exports = {
       },
       {
         email: 'user1@user.io',
-        username: 'Unreal Engine',
+        username: 'UnrealEngine7',
         hashedPassword: bcrypt.hashSync('password2')
       },
       {
         email: 'user2@user.io',
-        username: 'Smash Bros',
+        username: 'MusicLover55',
         hashedPassword: bcrypt.hashSync('password3')
       }
     ], {});
