@@ -15,6 +15,11 @@ function Library() {
       }
     })
   }
+  if (yourSongs) {
+    yourSongs.sort(function (a, b) {
+      return a.id - b.id;
+    })
+  }
 
   return (
     <>

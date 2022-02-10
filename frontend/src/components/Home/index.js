@@ -7,6 +7,12 @@ function Home() {
   const allSongs = useSelector(state => state.songs.allSongs);
   const sessionUser = useSelector(state => state.session.user);
 
+  if (allSongs) {
+    allSongs.sort(function (a, b) {
+      return a.id - b.id;
+    })
+  }
+
   return (
     <>
       <h2 className="home-title">Discover</h2>
