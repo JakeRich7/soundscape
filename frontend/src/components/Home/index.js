@@ -51,6 +51,12 @@ function Home() {
             <Song key={ele.id} ele={ele} />
           ))
         }
+        {
+          allSongs &&
+          sessionUser &&
+          !filteredSongs.length &&
+          <h2 className="no-favorites-message">No favorites!</h2>
+        }
       </ul>
     </>
   )

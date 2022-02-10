@@ -8,14 +8,14 @@ function Library() {
   const sessionUser = useSelector(state => state.session.user);
 
   let yourSongs = [];
-  if (allSongs) {
+  if (allSongs && sessionUser) {
     allSongs.forEach(ele => {
       if (ele.user_id === sessionUser.id) {
         yourSongs.push(ele);
       }
     })
   }
-  if (yourSongs) {
+  if (yourSongs && sessionUser) {
     yourSongs.sort(function (a, b) {
       return a.id - b.id;
     })

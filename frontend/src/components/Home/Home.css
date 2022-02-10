@@ -17,3 +17,7 @@
 .sorter-dropdown {
   margin-left: 5px;
 }
+
+.no-favorites-message {
+  font-size: 40px;
+}
