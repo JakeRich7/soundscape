@@ -153,7 +153,7 @@ function Song({ ele }) {
             </>
           }
           {
-            <i className={`fas fa-heart favorite${fave}`} onClick={favoriteStatus} />
+            <i className={`fas fa-heart fa-lg favorite${fave}`} onClick={favoriteStatus} />
           }
         </div>
       </li>
