@@ -19,6 +19,7 @@ function Song({ ele }) {
   const [errors, setErrors] = useState([])
   const [toggleCommentsState, setToggleCommentsState] = useState(false);
   const [commentsButtonText, setCommentsButtonText] = useState("Show Comments")
+  const [fave, setFave] = useState(ele.favorite);
 
   const uploadValidation = (e) => {
     let newErrors = [];
@@ -83,6 +84,7 @@ function Song({ ele }) {
   }
 
   const favoriteStatus = async (e) => {
+    setFave(!fave);
     await dispatch(songActions.favorite({ songId, favorite }));
     await dispatch(songActions.getAll());
   }
@@ -151,12 +153,7 @@ function Song({ ele }) {
             </>
           }
           {
-            ele.favorite &&
-            <i className="fas fa-heart liked" onClick={favoriteStatus} />
-          }
-          {
-            !ele.favorite &&
-            <i className="fas fa-heart" onClick={favoriteStatus} />
+            <i className={`fas fa-heart favorite${fave}`} onClick={favoriteStatus} />
           }
         </div>
       </li>

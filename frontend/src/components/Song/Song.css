@@ -121,6 +121,10 @@
   margin-left: 5px;
 }
 
-.liked {
+.favoritetrue {
   color: red;
+}
+
+.favoritefalse {
+  opacity: .3;
 }
