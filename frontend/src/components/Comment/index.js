@@ -11,6 +11,7 @@ function Comments({ ele }) {
   const [editButtonText, setEditButtonText] = useState("Edit");
   const dispatch = useDispatch();
   const [editCommentText, setEditCommentText] = useState(ele.body);
+  let commentId = ele.id;
 
   const toggleCommentEdit = (e) => {
     if (editButtonText === "Edit") {
@@ -21,8 +22,6 @@ function Comments({ ele }) {
     }
     setToggleEdit(!toggleEdit);
   }
-
-  let commentId = ele.id;
 
   const deleteComment = async (e) => {
     e.preventDefault();
@@ -39,8 +38,6 @@ function Comments({ ele }) {
       setToggleEdit(!toggleEdit);
     }
   }
-
-  console.log(ele);
 
   return (
     <div className="specific-comment-area" key={ele.id}>

@@ -16,13 +16,13 @@ import * as commentsActions from './store/comments';
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
+  const sessionUser = useSelector(state => state.session.user);
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
     dispatch(songActions.getAll());
     dispatch(commentsActions.getAll());
   }, [dispatch]);
-
-  const sessionUser = useSelector(state => state.session.user);
 
   return (
     <>

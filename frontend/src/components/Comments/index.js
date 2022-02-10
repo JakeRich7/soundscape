@@ -11,10 +11,9 @@ function Comments({ songId }) {
   const sessionUser = useSelector(state => state.session.user);
   const [addCommentValue, setAddCommentValue] = useState("");
   const dispatch = useDispatch();
-
   let userId = sessionUser.id;
-
   let songComments = [];
+
   allComments.forEach(ele => {
     if (ele.song_id === songId) {
       songComments.push(ele);
