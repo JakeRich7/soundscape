@@ -53,6 +53,22 @@ router.put(
   })
 )
 
+router.put(
+  '/favorite',
+  asyncHandler(async (req, res) => {
+    const { songId, favorite } = req.body;
+
+    const song = await Song.update(
+      { favorite: !favorite },
+      { where: { id: songId } }
+    )
+
+    return res.json({
+      song
+    });
+  })
+)
+
 router.delete(
   '/:songId',
   asyncHandler(async (req, res) => {

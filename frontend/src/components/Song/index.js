@@ -14,6 +14,7 @@ function Song({ ele }) {
   const sessionUser = useSelector(state => state.session.user);
   const userId = sessionUser.id;
   const songId = ele.id;
+  const favorite = ele.favorite;
   const dispatch = useDispatch();
   const [errors, setErrors] = useState([])
   const [toggleCommentsState, setToggleCommentsState] = useState(false);
@@ -81,6 +82,11 @@ function Song({ ele }) {
     }
   }
 
+  const favoriteStatus = async (e) => {
+    await dispatch(songActions.favorite({ songId, favorite }));
+    await dispatch(songActions.getAll());
+  }
+
   let songContent;
   if (toggleForm === true) {
     songContent = (
@@ -143,6 +149,14 @@ function Song({ ele }) {
             <>
               <button className="edit-button" onClick={toggleEditForm}>{editButtonText}</button>
             </>
+          }
+          {
+            ele.favorite &&
+            <i className="fas fa-heart liked" onClick={favoriteStatus} />
+          }
+          {
+            !ele.favorite &&
+            <i className="fas fa-heart" onClick={favoriteStatus} />
           }
         </div>
       </li>

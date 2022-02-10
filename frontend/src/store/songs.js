@@ -3,6 +3,7 @@ import { csrfFetch } from './csrf';
 const GET_SONGS = 'songs/getAll';
 const POST_SONG = 'songs/createOne';
 const EDIT_SONG = 'songs/editOne';
+const FAVORITE_SONG = 'songs/favoriteOne';
 const DELETE_SONG = 'songs/deleteOne';
 
 const getSongs = (allSongs) => {
@@ -22,6 +23,13 @@ const postSong = (response) => {
 const editSong = (response) => {
   return {
     type: EDIT_SONG,
+    payload: response,
+  };
+};
+
+const favoriteSong = (response) => {
+  return {
+    type: FAVORITE_SONG,
     payload: response,
   };
 };
@@ -76,6 +84,19 @@ export const deleteOne = ({ songId }) => async (dispatch) => {
     method: 'DELETE',
   })
   dispatch(deleteSong(response));
+  return response;
+};
+
+export const favorite = (alteredSong) => async (dispatch) => {
+  const { songId, favorite } = alteredSong;
+  const response = await csrfFetch('/api/songs/favorite', {
+    method: 'PUT',
+    body: JSON.stringify({
+      songId,
+      favorite
+    }),
+  });
+  dispatch(favoriteSong(response));
   return response;
 };
 

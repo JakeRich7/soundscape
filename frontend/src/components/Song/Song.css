@@ -116,3 +116,11 @@
 .comments-main-list-item {
   list-style-type: none;
 }
+
+.fa-heart {
+  margin-left: 5px;
+}
+
+.liked {
+  color: red;
+}
