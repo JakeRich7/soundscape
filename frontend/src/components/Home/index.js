@@ -25,6 +25,13 @@ function Home() {
         return b.id - a.id;
       })
       allSongs.forEach(ele => {filteredSongs.push(ele)})
+    } else if (sortBy === "title") {
+      allSongs.sort(function (a, b) {
+        if(a.title < b.title) { return -1 }
+        if(a.title > b.title) { return 1 }
+        return 0;
+      })
+      allSongs.forEach(ele => {filteredSongs.push(ele)})
     } else if (sortBy === "favorite") {
       filteredSongs = allSongs.filter(song => song.favorite === true)
     }
@@ -40,6 +47,7 @@ function Home() {
         <select onChange={handleOption} className="sorter-dropdown" id="sorter">
           <option value="created-first">First Created</option>
           <option value="created-last">Last Created</option>
+          <option value="title">Title</option>
           <option value="favorite">Favorites</option>
         </select>
       </h2>
