@@ -12,13 +12,18 @@ function Comments({ songId }) {
   const [addCommentValue, setAddCommentValue] = useState("");
   const dispatch = useDispatch();
   let userId = sessionUser.id;
-  let songComments = [];
 
+  let songComments = [];
   allComments.forEach(ele => {
     if (ele.song_id === songId) {
       songComments.push(ele);
     }
   })
+  if (songComments) {
+    songComments.sort(function (a, b) {
+      return a.id - b.id;
+    })
+  }
 
   const addComment = async (e) => {
     if (addCommentValue) {
