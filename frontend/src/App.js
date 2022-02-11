@@ -11,6 +11,7 @@ import * as songActions from './store/songs';
 import Library from "./components/Library";
 import Upload from "./components/Upload";
 import Intro from "./components/Intro";
+import ErrorPage from "./components/ErrorPage";
 import * as commentsActions from './store/comments';
 
 function App() {
@@ -62,7 +63,7 @@ function App() {
               </Route>
             }
             <Route>
-              404!!!
+              <ErrorPage />
             </Route>
           </Switch>
         )}
