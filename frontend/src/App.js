@@ -31,28 +31,34 @@ function App() {
         <Navigation isLoaded={isLoaded} />
         {isLoaded && (
           <Switch>
-            <Route path="/login">
+            <Route exact path="/login">
               <LoginFormPage />
             </Route>
-            <Route path="/signup">
+            <Route exact path="/signup">
               <SignupFormPage />
             </Route>
-            <Route path="/logout">
+            <Route exact path="/logout">
               <LogoutPage />
             </Route>
-            <Route path="/discover">
+            <Route exact path="/discover">
               <Home />
             </Route>
-            <Route path="/library">
+            <Route exact path="/library">
               <Library />
             </Route>
-            <Route path="/upload">
+            <Route exact path="/upload">
               <Upload />
             </Route>
             {
               !sessionUser &&
               <Route exact path="/">
                 <Intro />
+              </Route>
+            }
+            {
+              sessionUser &&
+              <Route exact path="/">
+                <Redirect to="/discover" />
               </Route>
             }
             <Route>
