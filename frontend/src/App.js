@@ -55,11 +55,9 @@ function App() {
                 <Intro />
               </Route>
             }
-            {
-              !sessionUser &&
-              <Redirect to="/" />
-            }
-            <Redirect to="/discover" />
+            <Route>
+              404!!!
+            </Route>
           </Switch>
         )}
       </div>
