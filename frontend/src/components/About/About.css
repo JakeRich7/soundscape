@@ -1,0 +1,34 @@
+.about-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jake-image {
+  height: 320px;
+  width: 280px;
+  margin-top: 50px;
+  border-top-right-radius: 160px;
+  border-top-left-radius: 160px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.about-links {
+  display: flex;
+  flex-direction: row;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+  border-radius: 30px;
+  margin-top: 10px;
+}
+
+.github, .linkedin {
+  margin: 10px 25px;
+}
+
+.about-me {
+  margin-top: 10px;
+  font-size: 20px;
+  width: 410px;
+  text-align: center;
+}

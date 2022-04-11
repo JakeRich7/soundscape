@@ -12,6 +12,7 @@ import Library from "./components/Library";
 import Upload from "./components/Upload";
 import Intro from "./components/Intro";
 import ErrorPage from "./components/ErrorPage";
+import About from "./components/About";
 import * as commentsActions from './store/comments';
 
 function App() {
@@ -32,6 +33,9 @@ function App() {
         <Navigation isLoaded={isLoaded} />
         {isLoaded && (
           <Switch>
+            <Route exact path="/about">
+              <About />
+            </Route>
             <Route exact path="/login">
               <LoginFormPage />
             </Route>
