@@ -44,6 +44,7 @@ function Navigation({ isLoaded }) {
             <img className='soundscape-icon' src={soundscapeIcon} alt="soundscape icon" />
           </NavLink>
           <NavLink className="home-button" exact to="/"><div>Home</div></NavLink>
+          <NavLink className="about-button" exact to="/about"><div>About</div></NavLink>
         </div>
         {isLoaded && sessionLinks}
       </li>
